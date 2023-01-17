@@ -10,9 +10,9 @@ import io.cucumber.junit.CucumberOptions;
 
 @CucumberOptions(
 		plugin= {"pretty","com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
-				"html:target/cucumber-reports/reports.html","timeline:test-output-thread/"},
+				"html:target/cucumber-reports/reports.html","timeline:test-output-thread/","json:target/cucumber-report.json"},
 		 features = {"./src/test/resources/Features"},
-	        glue = {"LMS_API_Stepdefinition_Program"})
+	        glue = {"com.LMS_API.Stepdefinition"})
 
 public class TestRunner {
 

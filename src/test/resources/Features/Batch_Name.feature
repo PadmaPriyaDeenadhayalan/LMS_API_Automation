@@ -19,7 +19,7 @@
 Feature: Get Batch by BatchName
 @GetBatchByBatchName
      Scenario Outline: Get Batch by BatchName
-     Given Call "url"/batches/batchName/ endpoint 
+     Given Call "url"/batches/batchName/ endpoint to get the batch by batch name
     When  Batch Name  from given sheetname "<SheetName>" and rownumber <RowNumber> and GET request is sent
     Then Receive vaid HTTP response code 200 for BATCH BY BATCH_BatchName
     And The Response should fetch the detail of that Particular Batch Name 

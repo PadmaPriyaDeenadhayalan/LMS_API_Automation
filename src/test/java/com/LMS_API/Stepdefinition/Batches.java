@@ -1,4 +1,4 @@
-package com.LMS_API.Stepdefinition_Program;
+package com.LMS_API.Stepdefinition;
 
 import static io.restassured.RestAssured.given;
 
@@ -32,8 +32,9 @@ public class Batches extends BaseClass{
 
 
 //Get All Batches
-@Given("Call {string} endpoint")
-public void call_endpoint(String url1) {
+	
+	@Given("Call {string} endpoint for get all batches")
+	public void call_endpoint_for_get_all_batches(String url1) {
 	this.spec = given().baseUri(URL(url1));
 
 	this.spec.header("Accept","application/json");
@@ -42,6 +43,7 @@ public void call_endpoint(String url1) {
 
 @When("Get request for Batch is sent")
 public void get_request_for_batch_is_sent() {
+	
 	Response res =  this.spec.when().get("/batches");
 	this.res=res;
 
@@ -65,8 +67,8 @@ public void the_response_should_fetch_all_the_batches_which_includes_batch_id_ba
 
 //Get Batches By Id
 
-@Given("Call {string}\\/batches\\/batchId\\/ endpoint")
-public void call_batches_batch_id_endpoint(String url1) {
+@Given("Call {string}\\/batches\\/batchId\\/ endpoint to get particular batch id")
+public void call_batches_batch_id_endpoint_to_get_particular_batch_id(String url1) {
 	this.spec = given().baseUri(URL(url1));
 	this.spec.header("Accept","application/json");
 }
@@ -77,7 +79,7 @@ public void get_request_is_sent_form_given_sheetname_and_rownumber(String SheetN
 {
    ExcelReader reader = new ExcelReader();
 	List<Map<String, String>> testData = reader.getData(
-			"C:\\Users\\bernipoornima\\git\\LMS_API_Automation\\TestData\\Batch.xlsx",
+			"/Users/dineshkumar/Documents/workspace-spring-tool-suite-4-4.12.1.RELEASE/LMS_API_Automation/TestData/Batch.xlsx",
 			SheetName);
 	String batch_id = testData.get(RowNumber).get("Batch Id");
 	this.res = spec.when()
@@ -105,8 +107,8 @@ public void the_response_should_fetch_the_detail_of_that_particular_batchid() {
 //Get Batches By Batch Name
 
 
-@Given("Call {string}\\/batches\\/batchName\\/ endpoint")
-public void call_batches_batch_name_endpoint(String url1) {
+@Given("Call {string}\\/batches\\/batchName\\/ endpoint to get the batch by batch name")
+public void call_batches_batch_name_endpoint_to_get_the_batch_by_batch_name(String url1) {
 	this.spec = given().baseUri(URL(url1));
 	this.spec.header("Accept","application/json");
 }
@@ -115,7 +117,7 @@ public void call_batches_batch_name_endpoint(String url1) {
 public void batch_name_from_given_sheetname_and_rownumber_and_get_request_is_sent(String SheetName, Integer RowNumber) throws InvalidFormatException, IOException {
 	  ExcelReader reader = new ExcelReader();
 	  List<Map<String, String>> testData = reader.getData(
-	      "C:\\Users\\bernipoornima\\git\\LMS_API_Automation\\TestData\\Batch.xlsx",
+	      "/Users/dineshkumar/Documents/workspace-spring-tool-suite-4-4.12.1.RELEASE/LMS_API_Automation/TestData/Batch.xlsx",
 	      SheetName);
 
 	  String batch_name = testData.get(RowNumber).get("Batch Name");
@@ -138,8 +140,8 @@ public void the_response_should_fetch_the_detail_of_that_particular_batch_name()
 
 //Get Batches By Program Id
 
-@Given("Call {string}\\/batches\\/program\\/ endpoint")
-public void call_batches_program_endpoint(String url1) {
+@Given("Call {string}\\/batches\\/program\\/ endpoint to get the batches by ProgramId")
+public void call_batches_program_endpoint_to_get_the_batches_by_program_id(String url1) {
 	this.spec = given().baseUri(URL(url1));
 	this.spec.header("Accept","application/json");
 }
@@ -149,7 +151,7 @@ public void call_batches_program_endpoint(String url1) {
 public void batch_program_id_from_given_sheetname_and_rownumber_and_get_request_is_sent(String  SheetName, Integer RowNumber) throws InvalidFormatException, IOException {
 	  ExcelReader reader = new ExcelReader();
 	  List<Map<String, String>> testData = reader.getData(
-	      "C:\\Users\\bernipoornima\\git\\LMS_API_Automation\\TestData\\Batch.xlsx",
+	      "/Users/dineshkumar/Documents/workspace-spring-tool-suite-4-4.12.1.RELEASE/LMS_API_Automation/TestData/Batch.xlsx",
 	      SheetName);
 
 	  String program_id = testData.get(RowNumber).get("Program Id");
@@ -172,17 +174,17 @@ public void the_response_should_fetch_the_detail_of_that_particular_batch_by_usi
 
 //Put Without Intialization
 
-@Given("Call this {string} PUT Batch api end point")
-public void call_this_put_batch_api_end_point(String url1) {
-	 this.spec = given().baseUri(URL(url1));
-	  //this.spec.header("Accept","application/json");
-}
+//@Given("Call this {string} PUT Batch api end point")
+//public void call_this_put_batch_api_end_point(String url1) {
+//	 this.spec = given().baseUri(URL(url1));
+//	  //this.spec.header("Accept","application/json");
+//}
 
 @When("Without Intialize the header Send  Batch PUT HTTP rquest with Batch updated details from shetname {string} and rownumber {int}")
 public void without_intialize_the_header_send_batch_put_http_rquest_with_batch_updated_details_from_shetname_and_rownumber(String SheetName, Integer RowNumber) throws InvalidFormatException, IOException {
 	ExcelReader reader = new ExcelReader();
 	  List<Map<String,String>> testData = 
-	      reader.getData("C:\\Users\\bernipoornima\\git\\LMS_API_Automation\\TestData\\Batch.xlsx",
+	      reader.getData("/Users/dineshkumar/Documents/workspace-spring-tool-suite-4-4.12.1.RELEASE/LMS_API_Automation/TestData/Batch.xlsx",
 	          SheetName);
 	  String batch_id = testData.get(RowNumber).get("batchId");
 	  String batch_Name = testData.get(RowNumber).get("batchName");  
@@ -243,7 +245,7 @@ public void set_request_header() {
 public void send_batch_put_http_rquest_with_batch_updated_details_from_sheetname_and_rownumber(String    SheetName, Integer RowNumber) throws InvalidFormatException, IOException {
 	ExcelReader reader = new ExcelReader();
 	  List<Map<String,String>> testData = 
-	      reader.getData("C:\\Users\\bernipoornima\\git\\LMS_API_Automation\\TestData\\Batch.xlsx",
+	      reader.getData("/Users/dineshkumar/Documents/workspace-spring-tool-suite-4-4.12.1.RELEASE/LMS_API_Automation/TestData/Batch.xlsx",
 	          SheetName);
 	  String batch_id = testData.get(RowNumber).get("batchId");
 	  String batch_Name = testData.get(RowNumber).get("batchName");  
@@ -296,7 +298,7 @@ public void call_the(String baseurl) {
 public void set_request_header_with_po_st_batch_details_from_shetname_and_rownumber_and_sent_post_http_request(String SheetName, Integer RowNumber) throws InvalidFormatException, IOException {
 	ExcelReader reader = new ExcelReader();
 	  List<Map<String,String>> testData = 
-	      reader.getData("C:\\Users\\bernipoornima\\git\\LMS_API_Automation\\TestData\\Batch.xlsx",
+	      reader.getData("/Users/dineshkumar/Documents/workspace-spring-tool-suite-4-4.12.1.RELEASE/LMS_API_Automation/TestData/Batch.xlsx",
 	          SheetName);
 	  String batch_Name = testData.get(RowNumber).get("batchName");  
 	  String batch_Description = testData.get(RowNumber).get("batchDescription");
@@ -334,7 +336,7 @@ public void the_response_should_fetch_the_detail_of_created_new_batch() {
 	    Loggerload.info(this.res.getBody().asPrettyString());
 }
 
-//Push without Intialization
+//Post without Intialization
 
 
 @Given("call the {string}\\/batches save endpoint")
@@ -350,7 +352,7 @@ public void call_the_batches_save_endpoint(String url1) {
 public void with_out_initialize_the_header_send_post_request_with_new_batch_deatials_from_sheetname_and_rownumber_and_request_sent(String SheetName, Integer RowNumber) throws InvalidFormatException, IOException {
 	ExcelReader reader = new ExcelReader();
 	  List<Map<String,String>> testData = 
-	      reader.getData("C:\\Users\\bernipoornima\\git\\LMS_API_Automation\\TestData\\Batch.xlsx",
+	      reader.getData("/Users/dineshkumar/Documents/workspace-spring-tool-suite-4-4.12.1.RELEASE/LMS_API_Automation/TestData/Batch.xlsx",
 	          SheetName);
 	  String batch_Name = testData.get(RowNumber).get("batchName");  
 	  String batch_Description = testData.get(RowNumber).get("batchDescription");
@@ -401,7 +403,7 @@ public void call_from_batch_batches_batch_endpoint(String url1) {
 public void batch_id_from_given_sheetname_and_rownumber_and_delete_request_is_sent(String SheetName, Integer RowNumber) throws InvalidFormatException, IOException {
 	 ExcelReader reader = new ExcelReader(); 
      List<Map<String, String>> testData =reader.getData(
-    		 "C:\\Users\\bernipoornima\\git\\LMS_API_Automation\\TestData\\Batch.xlsx",SheetName); 
+    		 "/Users/dineshkumar/Documents/workspace-spring-tool-suite-4-4.12.1.RELEASE/LMS_API_Automation/TestData/Batch.xlsx",SheetName); 
            
      String batch_Delete = testData.get(RowNumber).get("Del Batch ID");
      

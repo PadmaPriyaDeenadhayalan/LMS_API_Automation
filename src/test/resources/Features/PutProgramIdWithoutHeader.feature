@@ -20,7 +20,7 @@
 Feature: Update Program details by Id without header
 
 Scenario Outline: Updating a Particular Program Id details without the header
-    Given Call "baseurl" /putprogram/{programId}
+    Given Call "baseurl" /putprogram/programId
     When  Update Program details from given sheetname "<SheetName>" and rownumber <RowNumber> and PUT request is sent
     Then Status Code should be415 unsupported media type
     And Validate  the updated programName

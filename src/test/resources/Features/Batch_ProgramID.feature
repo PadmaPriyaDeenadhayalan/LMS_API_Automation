@@ -19,7 +19,7 @@
 Feature: Get Batches by ProgramId
 @Getbatchprogramid
       Scenario Outline: Get Batches by ProgramID
-    Given Call "url"/batches/program/ endpoint
+    Given Call "url"/batches/program/ endpoint to get the batches by ProgramId
     When  Batch ProgramID  from given sheetname "<SheetName>" and rownumber <RowNumber> and GET request is sent
     Then Receive vaid HTTP response code 200 for BATCH BY BATCH_ProgramId
     And The Response should fetch the detail of that Particular Batch by using program Id 
