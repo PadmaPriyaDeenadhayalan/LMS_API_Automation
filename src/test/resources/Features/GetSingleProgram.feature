@@ -17,13 +17,17 @@
 ## (Comments)
 #Sample Feature Definition Template
 
+Feature: GetSingleProgramId
 
-Feature: GETAll, GetSingleProgramId, POST, PUT and DELETE Request
-
-@GetAllPrograms
-  Scenario: Verify the list of Programs as a Response
-    Given Call {baseurl}/allPrograms endpoint
-    When GET request is sent
+ @GetSingleProgram
+Scenario Outline: Verify a Particular Program Id as a Response
+    Given Call "baseurl" /programs endpoint
+    When  Program id from given sheetname "<SheetName>" and rownumber <RowNumber> and GET request is sent
     Then Status Code should be200 OK
-    And The Response should fetch all the programs which includes Program Id, Program Name, Program Description,Program Status,Creation Time and Last Modified Time.
-    
+    And The Response should fetch the detail of that Particular Program id. 
+
+  Examples: 
+      | SheetName     | RowNumber |
+      | GET_PROGRAMID |         0 |
+      | GET_PROGRAMID |         1 |
+      | GET_PROGRAMID |         2 |
