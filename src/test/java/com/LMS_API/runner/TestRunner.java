@@ -1,4 +1,4 @@
-package runner;
+package com.LMS_API.runner;
 
 import org.junit.runner.RunWith;
 

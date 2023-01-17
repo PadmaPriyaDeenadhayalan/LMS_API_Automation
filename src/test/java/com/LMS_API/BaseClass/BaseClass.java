@@ -1,4 +1,4 @@
-package LMS_API_BaseClass;
+package com.LMS_API.BaseClass;
 
 import static io.restassured.RestAssured.given;
 

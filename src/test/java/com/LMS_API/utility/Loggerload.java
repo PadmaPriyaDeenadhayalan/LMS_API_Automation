@@ -1,4 +1,4 @@
-package utility;
+package com.LMS_API.utility;
 
 	import org.apache.logging.log4j.LogManager;
 

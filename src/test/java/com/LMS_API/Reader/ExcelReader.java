@@ -1,4 +1,4 @@
-package Reader;
+package com.LMS_API.Reader;
 
 import java.io.File;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package LMS_API_Stepdefinition_Program;
+package com.LMS_API.Stepdefinition_Program;
 
 import static io.restassured.RestAssured.given;
 
@@ -13,14 +13,15 @@ import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.json.JSONObject;
 import org.junit.Assert;
 
-import LMS_API_BaseClass.BaseClass;
-import Reader.ExcelReader;
+import com.LMS_API.BaseClass.BaseClass;
+import com.LMS_API.Reader.ExcelReader;
+import com.LMS_API.utility.Loggerload;
+
 import io.cucumber.java.en.*;
 
 import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import utility.Loggerload;
 
 public class Programs extends BaseClass {
 
