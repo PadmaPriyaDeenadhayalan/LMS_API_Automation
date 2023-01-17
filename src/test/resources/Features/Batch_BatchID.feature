@@ -22,7 +22,7 @@ Feature: Title of your feature
 
    @GETBatchById
    Scenario Outline: Verify a Particular Batch Id as a Response
-   Given Call "url"/batches/batchId/ endpoint
+   Given Call "url"/batches/batchId/ endpoint to get particular batch id
    When GET request is sent form given sheetname "<SheetName>" and rownumber <RowNumber>
    Then Status Code should Display "200 OK"
    And The Response should fetch the detail of that Particular Batchid.

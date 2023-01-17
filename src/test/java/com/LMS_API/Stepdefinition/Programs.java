@@ -1,4 +1,4 @@
-package com.LMS_API.Stepdefinition_Program;
+package com.LMS_API.Stepdefinition;
 
 import static io.restassured.RestAssured.given;
 
@@ -305,8 +305,8 @@ public class Programs extends BaseClass {
 	
 	// Put Program for ID Without header//
 	
-	@Given("Call {string} \\/putprogram\\/\\{programId}")
-	public void call_putprogram(String baseurl1) {
+	@Given("Call {string} \\/putprogram\\/programId")
+	public void call_putprogram_program_id(String baseurl1)  {
 	    
 		this.spec = given().baseUri(URL(baseurl1));
 	}

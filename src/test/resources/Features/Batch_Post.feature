@@ -20,7 +20,7 @@ Feature: POST request
  
   @createNewBatch
   Scenario Outline: Create new Batch eithout header
-  Given call the "url"/batches save endpoint
+  Given Call the "https://lms-backend-service.herokuapp.com/lms/batches"
   When with out initialize the header send Post request with new Batch deatials from sheetname "<SheetName>" and rownumber <RowNumber> and request sent
   Then validatebnew batch ststus code
   Then Received response from the response body
@@ -32,7 +32,7 @@ Feature: POST request
   
   Scenario Outline: Create New Batch
    
-   Given Call the "https://lms-backend-service.herokuapp.com/lms/batches" 
+   Given Call the "https://lms-backend-service.herokuapp.com/lms/batches"  
    When Set request Header with POSt Batch details from shetname "<SheetName>" and rownumber <RowNumber> and Sent POST HTTP request 
    Then Receive vaid HTTP response code 201 for Batch POST request
    And  The Response should fetch the detail of  Created New Batch 

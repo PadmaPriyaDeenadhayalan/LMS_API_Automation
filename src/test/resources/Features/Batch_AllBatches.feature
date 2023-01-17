@@ -21,7 +21,7 @@ Get Batches by Program Id, Create Batch, Update Batch by Id,Delete Batch by Id
 
 @GetAllBatches
 Scenario: Verify the list of Batches as a Response
-    Given Call "url" endpoint
+    Given Call "url" endpoint for get all batches
     When Get request for Batch is sent	
    Then Status Code should be "200 OK"	
    And The Response should fetch all the batches which includes Batch Id, Batch Name, Batch Description,Batch Status,Creation Time and Last Modified Time.

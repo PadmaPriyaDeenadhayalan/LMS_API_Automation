@@ -18,8 +18,8 @@
 #Sample Feature Definition Template
 Feature: Update Batch by batch iD
 
-	Scenario Outline: Update  Batches by Batch Id without intialize the heade 
-  Given Call this "{{baseurl}}/batches/(BatchId)" PUT Batch api end point
+	Scenario Outline: Update  Batches by Batch Id without intialize the header 
+  Given Call this "url"/batches/ endpoint 
   When Without Intialize the header Send  Batch PUT HTTP rquest with Batch updated details from shetname "<SheetName>" and rownumber <RowNumber> 
   Then Validate the HTTP response code 200 for PUT1 request
   And  Fetch the details from the response body for  Batch PUT1 request. 
